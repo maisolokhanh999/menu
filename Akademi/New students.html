@@ -738,12 +738,10 @@
         }
       });
 
-      // Remove default form submission
       studentForm.addEventListener('submit', function(e) {
         e.preventDefault();
       });
       
-      // Clear photo error when file is selected
       const photoInput = document.getElementById('photoInput');
       if (photoInput) {
         photoInput.addEventListener('change', function() {
@@ -767,22 +765,18 @@
         });
       });
 
-      // Remove default form submission
       parentForm.addEventListener('submit', function(e) {
         e.preventDefault();
       });
     }
 
-    // Combined validation for both forms on final submit
     const finalSubmitBtn = document.getElementById('finalSubmitBtn');
     if (finalSubmitBtn) {
       finalSubmitBtn.addEventListener('click', function() {
         let isValid = true;
         let firstErrorElement = null;
 
-        // Validate Student Details Form
         if (studentForm) {
-          // Validate photo upload
           const photoInput = document.getElementById('photoInput');
           if (photoInput && !photoInput.files.length) {
             const photoField = photoInput.closest('.photo-field');
@@ -791,7 +785,6 @@
             if (!firstErrorElement) firstErrorElement = photoField;
           }
           
-          // Validate all student form inputs
           const studentTextInputs = studentForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
           studentTextInputs.forEach(input => {
             if (!validateField(input)) {
@@ -803,7 +796,6 @@
           });
         }
 
-        // Validate Parent Details Form
         if (parentForm) {
           const parentInputs = parentForm.querySelectorAll('input[type="text"], input[type="email"], textarea');
           parentInputs.forEach(input => {
@@ -816,12 +808,8 @@
           });
         }
 
-        // If all validations pass, submit
         if (isValid) {
           alert('Đăng ký thành công! Tất cả thông tin đã được điền đầy đủ và hợp lệ.');
-          // Uncomment the lines below to actually submit the forms
-          // if (studentForm) studentForm.submit();
-          // if (parentForm) parentForm.submit();
         } else {
           alert('Vui lòng điền đầy đủ và chính xác tất cả thông tin bắt buộc trong cả Student Details và Parent Details!');
           if (firstErrorElement) {

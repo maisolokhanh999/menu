@@ -10,9 +10,7 @@ loginForm.addEventListener("submit", function(event) {
     const fullName = document.getElementById("fullName").value;
     const email = document.getElementById("email").value;
     
-    
     const users = JSON.parse(localStorage.getItem('akademiUsers')) || [];
-    
     
     const existingUser = users.find(u => u.username === username);
     
@@ -27,7 +25,6 @@ loginForm.addEventListener("submit", function(event) {
         return;
     }
     
-    
     const existingEmail = users.find(u => u.email === email);
     
     if (existingEmail) {
@@ -41,7 +38,6 @@ loginForm.addEventListener("submit", function(event) {
         return;
     }
     
-    
     const newUser = {
         id: Date.now(),
         username: username,
@@ -54,15 +50,12 @@ loginForm.addEventListener("submit", function(event) {
     users.push(newUser);
     localStorage.setItem('akademiUsers', JSON.stringify(users));
     
-    
     successMessage.textContent = "Account created successfully! Redirecting to login...";
     successMessage.style.display = "block";
     errorMessage.style.display = "none";
     
-    
     loginForm.reset();
     
-   
     setTimeout(() => {
         window.location.href = "../login/login.html";
     }, 2000);

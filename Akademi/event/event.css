@@ -11,13 +11,11 @@ body {
     color: #2f2f5d;
 }
 
-/* App Layout */
 #app {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar Styles */
 .sidebar {
   width: 240px;
   background-color: #4D44B5;

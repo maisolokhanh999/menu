@@ -1,4 +1,3 @@
-// ===== LẤY CÁC ELEMENTS TỪ DOM =====
 const calendar = document.getElementById("calendar");
 const monthSelect = document.getElementById("monthSelect");
 const yearSelect = document.getElementById("yearSelect");

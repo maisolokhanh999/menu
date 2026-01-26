@@ -1,4 +1,3 @@
-// Dữ liệu mẫu users
 let users = [
     {
         id: 1,
