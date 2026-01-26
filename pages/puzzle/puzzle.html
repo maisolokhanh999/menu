@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="./puzzle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <section class="main-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="box1">
+                <p class="p1">Puzzle Game</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Moves:</span>
+                        <span id="moveCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Time:</span>
+                        <span id="timer" class="stat-value">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="box3">
+                <p class="p2">Game Controls</p>
+                <div class="box6">
+                    
+                    <div id="difficulty" value="3">
+                        
+                    </div>
+                    <button class="box5 btn-start" id="startBtn">
+                        <p> Bắt đầu</p>
+                    </button>
+                    <button class="box5 btn-reset" id="resetBtn">
+                        <p> Reset</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Puzzle Board Section -->
+        <div class="puzzle-section">
+            <div class="puzzle-container">
+                <div id="puzzleBoard" class="puzzle-board"></div>
+            </div>
+            
+            <!-- Win Message -->
+            <div id="winMessage" class="win-message hidden">
+                <div class="win-content">
+                    <h2> Congratulations! </h2>
+                    <p>You solved the puzzle!</p>
+                    <p class="win-stats">
+                        <span>Moves: <strong id="finalMoves">0</strong></span>
+                        <span>Time: <strong id="finalTime">00:00</strong></span>
+                    </p>
+                    <button class="box5 btn-play-again" id="playAgainBtn">
+                        <p>Play Again</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <div class="history-box">
+                <h3>Lịch sử lượt chơi</h3>
+                <div class="history-table-container">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Số TT</th>
+                                <th>Số bước</th>
+                                <th>Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr class="no-history">
+                                <td colspan="4">Chưa có lượt chơi nào</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./puzzle.js"></script>
+</body>
+
+</html>
