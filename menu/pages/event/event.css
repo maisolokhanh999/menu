@@ -1,0 +1,377 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f9f9f9;
+}
+
+
+.main-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.header-section {
+    margin-bottom: 20px;
+}
+
+.p1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgba(48, 57, 114, 1);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
+
+.box2 img {
+    height: 20px;
+    width: 20px;
+}
+
+.box2 input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    background: transparent;
+}
+
+
+.controls-section {
+    margin-bottom: 20px;
+}
+
+.p2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    color: rgba(48, 57, 114, 1);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.box3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.box4 {
+    border: 2px solid rgba(77, 68, 181, 1);
+    border-radius: 40px;
+    height: 40px;
+    width: 150px;
+    padding: 5px 12px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    background: white;
+}
+
+.box5 {
+    background: rgba(77, 68, 181, 1);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    width: 150px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.box5:hover {
+    background: rgba(67, 58, 161, 1);
+}
+
+.box5 img {
+    height: 20px;
+    width: 20px;
+}
+
+.box5 p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
+}
+
+.box6 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.calendar-section {
+    margin-top: 20px;
+}
+
+.parent {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    max-width: 800px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(160, 152, 174, 1);
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.box {
+    padding: 15px 10px;
+    min-height: 80px;
+    border: 2px solid rgba(48, 57, 114, 0.3);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(48, 57, 114, 1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    position: relative;
+}
+
+.box:hover {
+    border-color: rgba(77, 68, 181, 1);
+    background-color: rgba(77, 68, 181, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.box.has-note {
+    border-color: rgba(77, 68, 181, 1);
+    background-color: rgba(77, 68, 181, 0.1);
+}
+
+.box.has-note::after {
+    content: "📝";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+}
+
+
+.empty {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+}
+
+.empty:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+    overflow: hidden;
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 2px solid #f0f0f0;
+    background-color: rgba(77, 68, 181, 0.05);
+}
+
+.modal-header h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgba(48, 57, 114, 1);
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: rgba(48, 57, 114, 0.6);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    background-color: rgba(48, 57, 114, 0.1);
+    color: rgba(48, 57, 114, 1);
+}
+
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-body label {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(48, 57, 114, 1);
+    margin-bottom: 10px;
+}
+
+#noteInput {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+#noteInput:focus {
+    outline: none;
+    border-color: rgba(77, 68, 181, 1);
+}
+
+
+.saved-note {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-left: 4px solid rgba(77, 68, 181, 1);
+    border-radius: 8px;
+    display: none;
+}
+
+.saved-note.show {
+    display: block;
+}
+
+.saved-note p {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: rgba(48, 57, 114, 0.8);
+    margin: 0;
+}
+
+.saved-note strong {
+    color: rgba(48, 57, 114, 1);
+}
+
+
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 20px 25px;
+    border-top: 2px solid #f0f0f0;
+    background-color: #fafafa;
+}
+
+.modal-footer button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s;
+}
+
+.btn-save {
+    background: rgba(77, 68, 181, 1);
+    color: white;
+}
+
+.btn-save:hover {
+    background: rgba(67, 58, 161, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(77, 68, 181, 0.3);
+}
+
+.btn-cancel {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background: #d0d0d0;
+}
+

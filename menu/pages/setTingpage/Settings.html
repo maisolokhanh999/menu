@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Settings - Appearance</title>
+    <link rel="stylesheet" href="Settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <nav class="settings-nav">
+            <div class="settings-nav-header" onclick="history.back()" style="cursor: pointer;">
+                <div class="settings-nav-icon">
+                    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.8001 20.6312L0.336058 11.1912C-0.111942 10.8072 -0.111942 10.1032 0.336058 9.71923L10.8001 0.279227C11.4721 -0.328773 12.5601 0.119227 12.5601 1.01523L12.5601 19.8952C12.5601 20.7912 11.4721 21.2392 10.8001 20.6312Z" fill="white"/>
+                    </svg>
+                </div>
+                <h2 class="settings-nav-title">Settings</h2>
+            </div>
+            <ul>
+                <li>Appearance</li>
+            </ul>
+        </nav>
+
+        <main id="mainContent" class="settings-main">
+            <div class="search-box">
+                <input type="search" placeholder="Search here..." />
+            </div>
+
+            <section class="settings-section">
+                <h3>Appearance</h3>
+
+                <div class="settings-card">
+                    <div>
+                        <div class="settings-card-title">Theme</div>
+                        <div class="settings-card-subtitle">Color</div>
+                    </div>
+                    <div class="theme-buttons">
+                        <div class="theme-btn-wrapper">
+                            <div id="theme-purple-ring" class="theme-btn-ring"></div>
+                            <button id="theme-btn-purple" class="theme-btn theme-btn-purple" onclick="changeTheme('#4D44B5', '#e8eafc', '#2d3184')"></button>
+                        </div>
+                        <div class="theme-btn-wrapper">
+                            <div id="theme-orange-ring" class="theme-btn-ring"></div>
+                            <button id="theme-btn-orange" class="theme-btn theme-btn-orange" onclick="changeTheme('#FB7D5B', 'linear-gradient(#FB7D5B 10%, transparent 100%)', '#c44d00', 'white')"></button>
+                        </div>
+                        <div class="theme-btn-wrapper">
+                            <div id="theme-yellow-ring" class="theme-btn-ring"></div>
+                            <button id="theme-btn-yellow" class="theme-btn theme-btn-yellow" onclick="changeTheme('#FCC43E', 'linear-gradient(#FCC43E 10%, transparent 100%)', '#b8860b')"></button>
+                        </div>
+                        <button class="reset-btn" onclick="resetTheme()">Reset to default</button>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="settings-card-title">Dark theme</div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="darkThemeToggle" onchange="toggleDarkTheme(this)">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="settings-card">
+                    <label for="fontSize" class="settings-card-title">Font size</label>
+                    <select id="fontSize" class="settings-select" onchange="changeFontSize(this)">
+                        <option value="medium" selected>Medium (Recommended)</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+
+                <div class="settings-card">
+                    <label for="fontFamily" class="settings-card-title">Customize fonts</label>
+                    <select id="fontFamily" class="settings-select" onchange="changeFontFamily(this)">
+                        <option value="Poppins, sans-serif" selected>Poppins</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="'Courier New', monospace">Courier New</option>
+                    </select>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="Settings.js"></script>
+</body>
+</html>
+
